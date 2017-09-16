@@ -5,6 +5,15 @@
   console.log('Hello Audio Stream')
 
   var turbo = Turbo({site_id: '59bc88062b047800127690e1'})
+  turbo.currentUser(function(err, data){
+  	if (err){
+  	  console.log('No One Logged In')
+  	  return
+  	}
+
+    console.log('Current User: ' + JSON.stringify(data))
+
+  })
 
   var visitor = {
   	name: '',
@@ -35,9 +44,6 @@
     	alert('Please enter your password')
     	return
     }
-
-
-
   	
   	turbo.createUser(visitor, function(err, data){
   	  if (err){
