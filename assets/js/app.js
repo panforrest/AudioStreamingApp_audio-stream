@@ -109,7 +109,11 @@
       console.log('Register: '+JSON.stringify(data))
       window.location.href = '/admin'
   	})
+  })
 
+  $('#profile-icon').click(function(event){
+  	event.preventDefault()
+  	console.log('Upload Icon')
   })
 
 })()
