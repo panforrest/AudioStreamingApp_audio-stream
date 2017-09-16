@@ -36,7 +36,8 @@
   },
   "deploy": [
     "index.html",
-    "dist"
+    "dist",
+    "admin.html"
   ],
   "app": "59bc88062b047800127690e1"
 }
