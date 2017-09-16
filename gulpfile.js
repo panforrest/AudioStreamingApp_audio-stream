@@ -85,7 +85,7 @@ gulp.task('watch', function() {
 })
 
 gulp.task('prod', ['style', 'copy-images', 'copy-fonts', 'js', 'app'], function(){})
-gulp.task('default', ['style', 'copy-images', 'copy-fontss', 'js', 'app', 'watch'], function(){})
+gulp.task('default', ['style', 'copy-images', 'copy-fonts', 'js', 'app', 'watch'], function(){})
 
 
 
