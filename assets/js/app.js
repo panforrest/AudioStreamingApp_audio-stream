@@ -11,15 +11,15 @@
   	  return
   	}
 
-    console.log('Current User: ' + JSON.stringify(data))
+    // console.log('Current User: ' + JSON.stringify(data))
+    $('#header-username').html(data.user.name)
 
   })
 
-  var visitor = {
-  	name: '',
-  	email: '',
-  	password: ''
-  }
+  $('#btn-upload').click(function(event){
+  	event.preventDefault()
+  	console.log('Upload Track')
+  })
 
   $('#button-join').on('click', function(event){ //SHORTCUT $('#button-join').click(function(event){
   	event.preventDefault()
@@ -52,7 +52,7 @@
   	  }
 
       console.log('Register: '+JSON.stringify(data))
-
+      window.location.href = '/admin'
   	})
 
   })
