@@ -59,7 +59,16 @@
       	}
 
       	console.log('USER UPDATED: ' + JSON.stringify(data))
+      	currentUser = data.result
 
+	    var tracksList = ''
+	    currentUser.tracks.forEach(function(track, i){
+	      tracksList += '<tr><td style="width:130px"><a target="_blank" href="' + track.url + '" ><img src="/dist/images/icon_play.png" alt="..." /></a></td>'
+	      tracksList += '<td><h5><a target="_blank" href="' + track.url + '">' + track.name + '</a></h5><p>Uploaded: ' + track.timestamp + '</p></td>'
+	      tracksList += '<td><h4 class="price">Share</h4></td></tr>'
+
+	    })       	
+        $('#tracks-table').html(tracksList)
 
       })
 
