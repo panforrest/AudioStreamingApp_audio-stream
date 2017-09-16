@@ -29,7 +29,7 @@
 
 	      	console.log('USER UPDATED: ' + JSON.stringify(data))
 	      	currentUser = data.result
-            $('#profile-icon').attr('src', currentUser.image)
+            $('#profile-icon').attr('src', currentUser.image+'=s96-c')
 	    })
 
   	  	return
@@ -115,7 +115,7 @@
     // console.log('Tracks List: ' + tracksList)
 
     // $('#tracks-table').html(tracksList)
-    $('#profile-icon').attr('src', currentUser.image)
+    $('#profile-icon').attr('src', currentUser.image+'=s96-c')
 
   })
 
