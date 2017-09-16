@@ -50,15 +50,16 @@
 
 	      	console.log('USER UPDATED: ' + JSON.stringify(data))
 	      	currentUser = data.result
+	      	renderTracks()
 
-		    var tracksList = ''
-		    currentUser.tracks.forEach(function(track, i){
-		      tracksList += '<tr><td style="width:130px"><a target="_blank" href="' + track.url + '" ><img src="/dist/images/icon_play.png" alt="..." /></a></td>'
-		      tracksList += '<td><h5><a target="_blank" href="' + track.url + '">' + track.name + '</a></h5><p>Uploaded: ' + track.timestamp + '</p></td>'
-		      tracksList += '<td><h4 class="price">Share</h4></td></tr>'
+		    // var tracksList = ''
+		    // currentUser.tracks.forEach(function(track, i){
+		    //   tracksList += '<tr><td style="width:130px"><a target="_blank" href="' + track.url + '" ><img src="/dist/images/icon_play.png" alt="..." /></a></td>'
+		    //   tracksList += '<td><h5><a target="_blank" href="' + track.url + '">' + track.name + '</a></h5><p>Uploaded: ' + track.timestamp + '</p></td>'
+		    //   tracksList += '<td><h4 class="price">Share</h4></td></tr>'
 
-		    })       	
-	        $('#tracks-table').html(tracksList)
+		    // })       	
+	     //    $('#tracks-table').html(tracksList)
 
 	      })
 
@@ -67,6 +68,26 @@
 
   	})
   // })
+
+
+  }
+
+  var renderTracks = function(){
+
+    if (currentUser == null)
+      return
+
+    var tracksList = ''
+    currentUser.tracks.forEach(function(track, i){
+      tracksList += '<tr><td style="width:130px"><a target="_blank" href="' + track.url + '" ><img src="/dist/images/icon_play.png" alt="..." /></a></td>'
+      tracksList += '<td><h5><a target="_blank" href="' + track.url + '">' + track.name + '</a></h5><p>Uploaded: ' + track.timestamp + '</p></td>'
+      tracksList += '<td><h4 class="price">Share</h4></td></tr>'
+
+    })
+
+    console.log('Tracks List: ' + tracksList)
+
+    $('#tracks-table').html(tracksList)
 
 
   }
@@ -80,19 +101,20 @@
 
     console.log('Current User: ' + JSON.stringify(data))
     currentUser = data.user
+    renderTracks()
     $('#header-username').html(data.user.name)
 
-    var tracksList = ''
-    currentUser.tracks.forEach(function(track, i){
-      tracksList += '<tr><td style="width:130px"><a target="_blank" href="' + track.url + '" ><img src="/dist/images/icon_play.png" alt="..." /></a></td>'
-      tracksList += '<td><h5><a target="_blank" href="' + track.url + '">' + track.name + '</a></h5><p>Uploaded: ' + track.timestamp + '</p></td>'
-      tracksList += '<td><h4 class="price">Share</h4></td></tr>'
+    // var tracksList = ''
+    // currentUser.tracks.forEach(function(track, i){
+    //   tracksList += '<tr><td style="width:130px"><a target="_blank" href="' + track.url + '" ><img src="/dist/images/icon_play.png" alt="..." /></a></td>'
+    //   tracksList += '<td><h5><a target="_blank" href="' + track.url + '">' + track.name + '</a></h5><p>Uploaded: ' + track.timestamp + '</p></td>'
+    //   tracksList += '<td><h4 class="price">Share</h4></td></tr>'
 
-    })
+    // })
 
-    console.log('Tracks List: ' + tracksList)
+    // console.log('Tracks List: ' + tracksList)
 
-    $('#tracks-table').html(tracksList)
+    // $('#tracks-table').html(tracksList)
     $('#profile-icon').attr('src', currentUser.image)
 
   })
