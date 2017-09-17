@@ -21,7 +21,16 @@
 	    stationsHtml += '<small>' + numTracks + ' tracks</small><br>'
 	    stationsHtml += '<small>Basic support</small><br>'
 	    stationsHtml += '<small>Sync to cloud database</small><br><br>'
-	    stationsHtml += '<p class="text-center py-3"><a class="btn btn-primary" href="#">View Tracks</a></p></div></div>'
+	    stationsHtml += '<p class="text-center py-3"><a id="'+ user.id +'" class="btn btn-primary" href="#">View tracks</a></p></div></div>'
+    
+      setTimeout(function(){
+
+        $('#'+user.id).click(function(event){
+          event.preventDefault()
+          console.log('Select Station: ' + event.target.id)
+        })
+
+      }, 500)
     })
 
     $('#stations').html(stationsHtml) 
