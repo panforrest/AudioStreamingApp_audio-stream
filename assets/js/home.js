@@ -1,6 +1,12 @@
 (function(){
 
   console.log('Hello home')	
+  var selectStation = function(event){
+    event.preventDefault()
+    console.log('Select Station: ' + event.target.id)
+  }
+
+
   var turbo = Turbo({site_id: '59bc88062b047800127690e1'})
 
   turbo.fetch('user', null, function(err, data){
@@ -25,10 +31,11 @@
     
       setTimeout(function(){
 
-        $('#'+user.id).click(function(event){
-          event.preventDefault()
-          console.log('Select Station: ' + event.target.id)
-        })
+        $('#'+user.id).click(selectStation)
+        //   event.preventDefault()
+        //   console.log('Select Station: ' + event.target.id)
+        // })
+
 
       }, 500)
     })
