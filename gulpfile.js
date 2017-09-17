@@ -40,6 +40,7 @@ gulp.task('js', function(){
                 './assets/js/core.min.js',
                 './assets/js/thesaas.js',
                 './assets/js/script.js'
+
             ]
         )
         .pipe(sourcemaps.init())
@@ -65,6 +66,19 @@ gulp.task('app', function(){
         .pipe(gulp.dest('./dist/app/'))
 });
 
+gulp.task('home', function(){
+    return gulp.src(
+            [
+                './assets/js/home.js'
+            ]
+        )
+        .pipe(sourcemaps.init())
+        .pipe(gp_uglify())
+        .pipe(gp_rename('home.min.js'))
+        .pipe(sourcemaps.write(''))
+        .pipe(gulp.dest('./dist/home/'))
+});
+
 gulp.task('copy-images', function(){
     return gulp.src(
             ['./assets/images/**']
@@ -84,8 +98,8 @@ gulp.task('watch', function() {
     gulp.watch(['./assets/js/**.js', './assets/css/**', './assets/less/**', './assets/images/**'], ['prod'])
 })
 
-gulp.task('prod', ['style', 'copy-images', 'copy-fonts', 'js', 'app'], function(){})
-gulp.task('default', ['style', 'copy-images', 'copy-fonts', 'js', 'app', 'watch'], function(){})
+gulp.task('prod', ['style', 'copy-images', 'copy-fonts', 'js', 'app', 'home'], function(){})
+gulp.task('default', ['style', 'copy-images', 'copy-fonts', 'js', 'app', 'home', 'watch'], function(){})
 
 
 
