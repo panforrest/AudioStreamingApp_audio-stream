@@ -1,9 +1,15 @@
 (function(){
 
   var stations = {}
+  var slectedStations = null
+
   var selectStation = function(event){
     event.preventDefault()
-    console.log('Select Station: ' + JSON.stringify(stations[event.target.id]))
+    selectedStation = stations[event.target.id]
+    console.log('Select Station: ' + JSON.stringify(selectedStation))
+
+    $('selected-station-name').html(selectedStation.name)
+
     $('#btn-toggle').click()
   }
 
