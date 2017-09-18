@@ -1,12 +1,13 @@
 (function(){
 
-  console.log('Hello home')	
+  var stations = {}
   var selectStation = function(event){
     event.preventDefault()
-    console.log('Select Station: ' + event.target.id)
+    console.log('Select Station: ' + JSON.stringify(stations[event.target.id]))
     $('#btn-toggle').click()
   }
 
+  
 
   var turbo = Turbo({site_id: '59bc88062b047800127690e1'})
 
@@ -16,7 +17,7 @@
     }
 
     console.log('USERS: ' + JSON.stringify(data))
-    var users = data.results
+    users = data.results
 
     var stationsHtml = ''
     users.forEach(function(user, i){
@@ -29,7 +30,8 @@
 	    stationsHtml += '<small>Basic support</small><br>'
 	    stationsHtml += '<small>Sync to cloud database</small><br><br>'
 	    stationsHtml += '<p class="text-center py-3"><a id="'+ user.id +'" class="btn btn-primary" href="#">View tracks</a></p></div></div>'
-    
+      stations[user.id] = user
+      
       setTimeout(function(){
 
         $('#'+user.id).click(selectStation)
