@@ -8,7 +8,7 @@
     selectedStation = stations[event.target.id]
     console.log('Select Station: ' + JSON.stringify(selectedStation))
 
-    $('selected-station-name').html(selectedStation.name)
+    $('#selected-station-name').html(selectedStation.name)
 
     $('#btn-toggle').click()
   }
