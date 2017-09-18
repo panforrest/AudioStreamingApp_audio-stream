@@ -10,6 +10,18 @@
 
     $('#selected-station-name').html(selectedStation.name)
 
+    var trackList = ''
+    if (selectedStation.tracks != null){
+      selectedStation.tracks.forEach(function(track, i){
+        trackList += '<li class="nav-item">'
+        trackList += '<a class="nav-link" href="#">' + track.name + '</a>'
+        trackList += '</li>'
+
+      })
+    }
+
+    $('#selected-station-tracks').html(trackList)
+
     $('#btn-toggle').click()
   }
 
