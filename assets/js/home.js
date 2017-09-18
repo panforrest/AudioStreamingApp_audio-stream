@@ -4,6 +4,7 @@
   var selectStation = function(event){
     event.preventDefault()
     console.log('Select Station: ' + event.target.id)
+    $('#btn-toggle').click()
   }
 
 
