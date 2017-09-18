@@ -65,4 +65,22 @@
 
   })
 
+  var ap4 = new APlayer({
+    element: document.getElementById('aplayer'),
+    narrow: false,
+    autoplay: false,
+    showlrc: false,
+    mutex: true,
+    theme: '#ad7a86',
+    mode: 'random',
+    music: [
+        {
+            title: 'TEST',
+            author: 'TEST',
+            url: 'https://storage.turbo360.co/audio-stream--6xiqee/themepunch-script-1.mp3',
+
+        }
+    ]
+  });  
+
 })()
