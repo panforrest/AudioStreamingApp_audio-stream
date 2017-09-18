@@ -3,6 +3,32 @@
   var stations = {}
   var slectedStations = null
 
+  var configureAudioPlayer = function(tracks){
+    if (tracks == null)
+      return
+
+    var ap4 = new APlayer({
+      element: document.getElementById('aplayer'),
+      narrow: false,
+      autoplay: false,
+      showlrc: false,
+      mutex: true,
+      theme: '#ad7a86',
+      // mode: 'random',
+      music: tracks
+      // music: [
+      //     {
+      //         title: 'TEST',
+      //         author: 'TEST',
+      //         url: 'https://storage.turbo360.co/audio-stream--6xiqee/themepunch-script-1.mp3',
+
+      //     }
+      // ]
+    }); 
+
+  }
+
+
   var selectStation = function(event){
     event.preventDefault()
     selectedStation = stations[event.target.id]
@@ -10,17 +36,29 @@
 
     $('#selected-station-name').html(selectedStation.name)
 
-    var trackList = ''
+    // var trackList = ''
+    
     if (selectedStation.tracks != null){
+      var tracks = []
       selectedStation.tracks.forEach(function(track, i){
-        trackList += '<li class="nav-item">'
-        trackList += '<a class="nav-link" href="#">' + track.name + '</a>'
-        trackList += '</li>'
+        // trackList += '<li class="nav-item">'
+        // trackList += '<a class="nav-link" href="#">' + track.name + '</a>'
+        // trackList += '</li>'
+
+        tracks.push({
+          title: track.name,
+          author: '',
+          url: track.url,
+          pic: ''
+        })
 
       })
+
+      configureAudioPlayer(tracks)
+
     }
 
-    $('#selected-station-tracks').html(trackList)
+    // $('#selected-station-tracks').html(trackList)
 
     $('#btn-toggle').click()
   }
@@ -65,22 +103,22 @@
 
   })
 
-  var ap4 = new APlayer({
-    element: document.getElementById('aplayer'),
-    narrow: false,
-    autoplay: false,
-    showlrc: false,
-    mutex: true,
-    theme: '#ad7a86',
-    mode: 'random',
-    music: [
-        {
-            title: 'TEST',
-            author: 'TEST',
-            url: 'https://storage.turbo360.co/audio-stream--6xiqee/themepunch-script-1.mp3',
+  // var ap4 = new APlayer({
+  //   element: document.getElementById('aplayer'),
+  //   narrow: false,
+  //   autoplay: false,
+  //   showlrc: false,
+  //   mutex: true,
+  //   theme: '#ad7a86',
+  //   mode: 'random',
+  //   music: [
+  //       {
+  //           title: 'TEST',
+  //           author: 'TEST',
+  //           url: 'https://storage.turbo360.co/audio-stream--6xiqee/themepunch-script-1.mp3',
 
-        }
-    ]
-  });  
+  //       }
+  //   ]
+  // });  
 
 })()
